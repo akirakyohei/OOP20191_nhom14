@@ -1,6 +1,6 @@
 package oop.main;
 
-import ImportData.InsertData;
+import oop.ImportData.InsertData;
 
 public class TestImportMain {
 	public static void main(String[] args) {

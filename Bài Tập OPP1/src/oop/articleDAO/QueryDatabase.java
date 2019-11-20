@@ -6,7 +6,7 @@ import com.arangodb.ArangoCursor;
 import com.arangodb.ArangoDBException;
 import com.arangodb.entity.BaseDocument;
 
-import ConnectionDB.DatabaseArangoDB;
+import oop.ConnectionDB.DatabaseArangoDB;
 
 public class QueryDatabase {
 

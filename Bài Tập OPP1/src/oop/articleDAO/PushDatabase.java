@@ -8,7 +8,7 @@ import com.arangodb.ArangoDBException;
 import com.arangodb.entity.BaseDocument;
 import com.arangodb.util.MapBuilder;
 
-import ConnectionDB.DatabaseArangoDB;
+import oop.ConnectionDB.DatabaseArangoDB;
 import oop.beans.Country;
 import oop.beans.Event;
 import oop.beans.Fact;
