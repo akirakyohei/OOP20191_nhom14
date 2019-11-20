@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import oop.beans.Person;
 
-public class GeneratePersons extends Generate {
+public class GeneratePersons implements IGenerate {
 	/**
 	 * sinh danh sach thuc the Person
 	 * @param n : so thuc the sinh ra
@@ -14,33 +14,33 @@ public class GeneratePersons extends Generate {
 	public ArrayList<Person> generate(int n) {
         ArrayList<Person> dsPerson = new ArrayList<>();
 		
-		ArrayList<String> nhanHienthis = readData("data/Person_nhan.txt");
+		ArrayList<String> nhanHienthis = Data.readData("data/Person_nhan.txt");
 		
-		ArrayList<String> dinhDanhs = readData("data/Person_dinhDanh.txt");
+		ArrayList<String> dinhDanhs = Data.readData("data/Person_dinhDanh.txt");
 
 		
-		ArrayList<String> moTas = readData("data/Person_moTa.txt");
+		ArrayList<String> moTas = Data.readData("data/Person_moTa.txt");
 
 		
-		ArrayList<String> links = readData("data/Person_link.txt");
+		ArrayList<String> links = Data.readData("data/Person_link.txt");
 		
-		ArrayList<String> ngayTrichRuts = readData("data/NgayTrichRut.txt");
+		ArrayList<String> ngayTrichRuts = Data.readData("data/NgayTrichRut.txt");
 
 		
-		ArrayList<String> chucVus = readData("data/Person_chucVu.txt");
+		ArrayList<String> chucVus = Data.readData("data/Person_chucVu.txt");
 		
 		
-		ArrayList<String> quocTichs = readData("data/Person_quocTich.txt");
+		ArrayList<String> quocTichs = Data.readData("data/Person_quocTich.txt");
 		
 		for(int i=0;i<n;i++) {
 			Person coun=new Person();
-			coun.setDinhDanh(randomData(dinhDanhs));
-			coun.setLink(randomData(links));
-			coun.setMoTa(randomData(moTas));
-			coun.setNgayTrichRut(randomData(ngayTrichRuts));
-			coun.setNhanHienThi(randomData(nhanHienthis));
-			coun.setChucVu(randomData(chucVus));
-			coun.setQuocTich(randomData(quocTichs));
+			coun.setDinhDanh(Data.randomData(dinhDanhs)+"_"+i);
+			coun.setLink(Data.randomData(links));
+			coun.setMoTa(Data.randomData(moTas));
+			coun.setNgayTrichRut(Data.randomData(ngayTrichRuts));
+			coun.setNhanHienThi(Data.randomData(nhanHienthis));
+			coun.setChucVu(Data.randomData(chucVus));
+			coun.setQuocTich(Data.randomData(quocTichs));
 			dsPerson.add(coun);
 		}
 		return dsPerson;

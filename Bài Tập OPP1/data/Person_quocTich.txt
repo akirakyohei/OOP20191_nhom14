@@ -2,15 +2,14 @@
 Nhật Bản
 Lào
 Campuchia
-Hoa Kỳ
+Mỹ
 Trung Quốc
 Ấn Độ
-Ca-na-da
+Canada
 Hàn Quốc 
 Triều Tiên
 Thái Lan
 Mông Cổ
-Phần Lan
 Nga 
 Pháp
 Anh
@@ -24,10 +23,9 @@ Thụy Điển
 Hy Lạp
 Ai Cập
 Úc
-Pakistan
+Iran
 Nepan
 Malaysia
 Mianma
 Singapore
 Indonesia
-Nam Phi

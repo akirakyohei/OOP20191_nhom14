@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import oop.beans.Location;
 
-public class GenerateLocations extends Generate{
+public class GenerateLocations implements IGenerate{
 	/**
 	 * sinh danh sach thuc the  Location
 	 * @param n :so luong thuc the sinh ra
@@ -14,17 +14,17 @@ public class GenerateLocations extends Generate{
 	public ArrayList<Location> generate(int n) {
 	ArrayList<Location> dsLocation = new ArrayList<>();
 		
-		ArrayList<String> nhanHienthis = readData("data/Location_nhan.txt");
+		ArrayList<String> nhanHienthis = Data.readData("data/Location_nhan.txt");
 		
-		ArrayList<String> dinhDanhs = readData("data/Location_dinhDanh.txt");
+		ArrayList<String> dinhDanhs = Data.readData("data/Location_dinhDanh.txt");
 
 		
-		ArrayList<String> moTas = readData("data/Location_moTa.txt");
+		ArrayList<String> moTas = Data.readData("data/Location_moTa.txt");
 
 		
-		ArrayList<String> links = readData("data/Location_link.txt");
+		ArrayList<String> links = Data.readData("data/Location_link.txt");
 		
-		ArrayList<String> ngayTrichRuts = readData("data/NgayTrichRut.txt");
+		ArrayList<String> ngayTrichRuts = Data.readData("data/NgayTrichRut.txt");
 
 		
 		
@@ -32,11 +32,11 @@ public class GenerateLocations extends Generate{
 		
 		for(int i=0;i<n;i++) {
 			Location coun=new Location();
-			coun.setDinhDanh(randomData(dinhDanhs));
-			coun.setLink(randomData(links));
-			coun.setMoTa(randomData(moTas));
-			coun.setNgayTrichRut(randomData(ngayTrichRuts));
-			coun.setNhanHienThi(randomData(nhanHienthis));
+			coun.setDinhDanh(Data.randomData(dinhDanhs)+"_"+i);
+			coun.setLink(Data.randomData(links));
+			coun.setMoTa(Data.randomData(moTas));
+			coun.setNgayTrichRut(Data.randomData(ngayTrichRuts));
+			coun.setNhanHienThi(Data.randomData(nhanHienthis));
 			dsLocation.add(coun);
 		}
 		return dsLocation;
