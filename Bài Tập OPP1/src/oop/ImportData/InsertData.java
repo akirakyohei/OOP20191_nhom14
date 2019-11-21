@@ -20,6 +20,10 @@ import oop.generatedata.GenerateTimes;
 import oop.generatedata.IGenerate;
 
 public class InsertData {
+	private final String NAMEDATABASE;
+	public InsertData(String nameDatabase) {
+		this.NAMEDATABASE=nameDatabase;
+	}
 	public void loadData(int entityCount,int factCount) {
 		
 		int entityCount1=entityCount/6;
@@ -63,8 +67,8 @@ public class InsertData {
 ;		
 //load du lieu len database
 // load thuc the 
-String DATABASENAME="OOP20191";
- PushDatabase dao=new PushDatabase(DATABASENAME);
+
+ PushDatabase dao=new PushDatabase(NAMEDATABASE);
  dao.addCountry(dsCountries);
  dao.addEvent(dsEvents);
  dao.addLocation(dsLocations);

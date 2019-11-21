@@ -147,6 +147,7 @@ public class QueryDatabase {
 		try{for(String q:queries) {
 		start=System.currentTimeMillis();
 			ArangoCursor<BaseDocument> cursor=database.getConnection().query(q, null, null, BaseDocument.class);
+			BaseDocument base=cursor.next();
 		end=System.currentTimeMillis();
 		arr.add( (end-start));
 			while(cursor.hasNext()) {
