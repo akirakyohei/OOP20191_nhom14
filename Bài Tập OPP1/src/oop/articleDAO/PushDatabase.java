@@ -3,12 +3,11 @@ package oop.articleDAO;
 import java.util.ArrayList;
 import java.util.Map;
 
-import com.arangodb.ArangoCollection;
 import com.arangodb.ArangoDBException;
 import com.arangodb.entity.BaseDocument;
 import com.arangodb.util.MapBuilder;
 
-import oop.ConnectionDB.DatabaseArangoDB;
+import oop.beans.Aggrement;
 import oop.beans.Country;
 import oop.beans.Event;
 import oop.beans.Fact;
@@ -18,23 +17,20 @@ import oop.beans.Person;
 import oop.beans.Time;
 
 public class PushDatabase {
-private DatabaseArangoDB database;
+private CollectionDatabase collection;
 
 public PushDatabase(String nameDatabase) {
-	database= new DatabaseArangoDB(nameDatabase);
+	collection=new CollectionDatabase(nameDatabase);
 }
 
-public ArangoCollection getCollection(String name) {
-	ArangoCollection col =database.getConnection().collection(name);
-	return col;
-}
+
 public void close() {
-	database.close();
+	collection.close();
 }
 public void addDocuments(String nameCollection,ArrayList<BaseDocument> array) {
 	try {
 		
-	 this.getCollection(nameCollection).insertDocuments(array);
+	 collection.getCollection(nameCollection).insertDocuments(array);
 	
 	} catch (ArangoDBException e) {
 		System.out.println("Failed to create document. " + e.getMessage());
@@ -146,6 +142,25 @@ public void addPerson(ArrayList<Person> p) {
 	  
 	  addDocuments("Time",array);
 	  }
+  
+  public  void addAggrement(ArrayList<Aggrement> t) {
+		 ArrayList<BaseDocument> array=new ArrayList<>();
+		  for(int i=0 ;i<t.size();i++) {
+				Aggrement ti=t.get(i);
+				  BaseDocument doc=new BaseDocument();
+				doc.setKey(ti.getDinhDanh());
+				  Map<String ,Object> map = new MapBuilder().get();
+					  map.put("moTa",ti.getMoTa() );
+					  map.put("nhanHienThi", ti.getNhanHienThi());
+					  map.put("link",ti.getLink());
+					  map.put("ngayTrichRut",ti.getNgayTrichRut());
+					  doc.setProperties(map);
+					array.add(doc);
+					System.out.println(doc.toString());
+				  }
+		  
+		  addDocuments("Aggrement",array);
+		  }
   public void addFact(ArrayList<Fact> f) {
 	  ArrayList<BaseDocument> array=new ArrayList<>();
 	  for(int i=0 ;i<f.size();i++) {

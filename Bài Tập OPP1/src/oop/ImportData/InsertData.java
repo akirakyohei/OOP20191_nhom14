@@ -3,6 +3,7 @@ package oop.ImportData;
 import java.util.ArrayList;
 
 import oop.articleDAO.PushDatabase;
+import oop.beans.Aggrement;
 import oop.beans.Country;
 import oop.beans.Event;
 import oop.beans.Fact;
@@ -10,6 +11,7 @@ import oop.beans.Location;
 import oop.beans.Organization;
 import oop.beans.Person;
 import oop.beans.Time;
+import oop.generatedata.GenerateAggrement;
 import oop.generatedata.GenerateCountries;
 import oop.generatedata.GenerateEvents;
 import oop.generatedata.GenerateFacts;
@@ -21,14 +23,13 @@ import oop.generatedata.IGenerate;
 
 public class InsertData {
 	private final String NAMEDATABASE;
-	
 	public InsertData(String nameDatabase) {
 		this.NAMEDATABASE=nameDatabase;
 	}
 	public void loadData(int entityCount,int factCount) {
 		
-		int entityCount1=entityCount/6;
-		int entityCount2=entityCount-entityCount1*5;
+		int entityCount1=entityCount/7;
+		int entityCount2=entityCount-entityCount1*6;
 				
 		//sinh du lieu thuc the
 		IGenerate gen= new GenerateCountries();
@@ -47,10 +48,12 @@ public class InsertData {
 		ArrayList<Person> dsPersons=(ArrayList<Person>) gen.generate(entityCount1);
 		
 		gen=new  GenerateTimes();
-		ArrayList<Time> dsTime=(ArrayList<Time>) gen.generate(entityCount2);
+		ArrayList<Time> dsTime=(ArrayList<Time>) gen.generate(entityCount1);
 		
-		int factCount1=factCount/12;
-		int factCount2=factCount-factCount1*11;
+		gen= new GenerateAggrement();
+		ArrayList<Aggrement> dsAggrement=(ArrayList<Aggrement>)gen.generate(entityCount2);
+		int factCount1=factCount/13;
+		int factCount2=factCount-factCount1*12;
 		//sinh du lieu quan he
 		ArrayList<Fact> factDienRaTai=GenerateFacts.generate("diễn ra tại", dsEvents, dsLocations,factCount1);
 		//for(Fact d:factDienRaTai)System.out.println(d.getObject()+" "+d.getQuanHe()+" "+d.getSubject());
@@ -62,19 +65,21 @@ public class InsertData {
 		ArrayList<Fact> factLaNguoiToChuc = GenerateFacts.generate("là người tổ chức",dsPersons, dsEvents, factCount1);
 		ArrayList<Fact> factDienRaTaiNuoc = GenerateFacts.generate("diễn ra tại",dsEvents, dsCountries, factCount1);
 		ArrayList<Fact> factThuocNuoc = GenerateFacts.generate("thuộc nước",dsLocations, dsCountries, factCount1);
-		ArrayList<Fact> quanThanhLapVaoThoiGian= GenerateFacts.generate("thành lập vào",dsOrganizations, dsTime, factCount1);
+		ArrayList<Fact> factThanhLapVaoThoiGian= GenerateFacts.generate("thành lập vào",dsOrganizations, dsTime, factCount1);
 		ArrayList<Fact> factQuanLy =GenerateFacts.generate("quản lí",dsPersons, dsOrganizations, factCount1);
-		ArrayList<Fact> factPhatBieuTai = GenerateFacts.generate("phát biểu tại",dsPersons, dsEvents, factCount2);
-;		
+		ArrayList<Fact> factPhatBieuTai = GenerateFacts.generate("phát biểu tại",dsPersons, dsEvents, factCount1);
+		ArrayList<Fact> factKiket=GenerateFacts.generate("kí kết", dsPersons, dsAggrement,factCount2);
 //load du lieu len database
 // load thuc the 
- PushDatabase dao=new PushDatabase(DATABASENAME);
+
+ PushDatabase dao=new PushDatabase(NAMEDATABASE);
  dao.addCountry(dsCountries);
  dao.addEvent(dsEvents);
  dao.addLocation(dsLocations);
 dao.addOrganization(dsOrganizations);
 dao.addPerson(dsPersons);
 dao.addTime(dsTime);
+dao.addAggrement(dsAggrement);
 //load quan he
 dao.addFact(factPhatBieuTai);
 dao.addFact(factDienRaLuc);
@@ -87,6 +92,8 @@ dao.addFact(factGapMat);
 dao.addFact(factDenTham);
 dao.addFact(factToChuc);
 dao.addFact(factDienRaTaiNuoc);	
-//dao.close();
+dao.addFact(factKiket);	
+dao.addFact(factThanhLapVaoThoiGian);
+dao.close();
 	}
 }

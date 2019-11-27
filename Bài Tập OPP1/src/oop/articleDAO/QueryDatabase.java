@@ -127,19 +127,6 @@ public class QueryDatabase {
 		" return f1.subject");
 	 return queries;	  
 	}
-	public void query(ArrayList<String>queries ,String nameDatabase) {
-		DatabaseArangoDB database= new DatabaseArangoDB(nameDatabase);
-		try{for(String q:queries) {
-		
-			ArangoCursor<BaseDocument> cursor=database.getConnection().query(q, null, null, BaseDocument.class);
-		while(cursor.hasNext()) {
-			System.out.println(cursor.next().getProperties().toString());
-		}
-		}}catch(ArangoDBException e) {
-			System.out.println(e.getErrorMessage());
-		}
-		database.close();
-	}
 	public ArrayList<Long> testQueries(ArrayList<String>queries ,String nameDatabase) {
 		ArrayList<Long> arr= new ArrayList<>();
 		long start,end;
