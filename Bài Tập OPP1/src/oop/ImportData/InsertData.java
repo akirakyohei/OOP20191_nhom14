@@ -88,6 +88,6 @@ dao.addFact(factGapMat);
 dao.addFact(factDenTham);
 dao.addFact(factToChuc);
 dao.addFact(factDienRaTaiNuoc);	
-//dao.close();
+dao.close();
 	}
 }
