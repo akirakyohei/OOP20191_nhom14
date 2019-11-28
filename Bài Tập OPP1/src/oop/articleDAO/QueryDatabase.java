@@ -90,8 +90,8 @@ public class QueryDatabase {
 				+ " filter p._key==f.object and p.chucVu==\"Thủ tướng\" and f.fact==\"gặp mặt\""
 				+ " return f.subject ");
 
-		// 10 nhung su kien dien ra ngay "12_2_2017_23" dien ra tai nhung dau ?
-		queries.add(" for s in (for  f in Fact" + " filter f.fact ==\"diễn ra lúc\" and f.subject ==\"12_6_2015_39\""
+		// 10 nhung su kien dien ra ngay "7_2_2017_4" dien ra tai nhung dau ?
+		queries.add(" for s in (for  f in Fact" + " filter f.fact ==\"diễn ra lúc\" and f.subject ==\"7_2_2017_4\""
 				+ " return {sukien : f.object }" + " )" + " for f1 in Fact "
 				+ " filter f1.fact==\"diễn ra tại\" and f1.object== s.sukien" + " return f1.subject");
 		return queries;
