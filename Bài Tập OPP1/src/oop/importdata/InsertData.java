@@ -1,4 +1,4 @@
-package oop.ImportData;
+package oop.importdata;
 
 import java.util.ArrayList;
 

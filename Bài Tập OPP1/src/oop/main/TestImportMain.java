@@ -1,7 +1,7 @@
 package oop.main;
 
-import oop.ImportData.InsertData;
 import oop.articleDAO.CollectionDatabase;
+import oop.importdata.InsertData;
 
 public class TestImportMain {
 	public static void main(String[] args) {

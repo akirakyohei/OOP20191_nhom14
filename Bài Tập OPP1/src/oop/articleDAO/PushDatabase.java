@@ -27,6 +27,8 @@ public PushDatabase(String nameDatabase) {
 public void close() {
 	collection.close();
 }
+
+
 public void addDocuments(String nameCollection,ArrayList<BaseDocument> array) {
 	try {
 		
@@ -36,6 +38,8 @@ public void addDocuments(String nameCollection,ArrayList<BaseDocument> array) {
 		System.out.println("Failed to create document. " + e.getMessage());
 	}
 }
+
+
 public void addPerson(ArrayList<Person> p) {
 	ArrayList<BaseDocument> array=new ArrayList<>();
 	  for(int i=0 ;i<p.size();i++) {
@@ -56,6 +60,7 @@ public void addPerson(ArrayList<Person> p) {
 	 addDocuments("Person", array);
   }
 
+
   public  void addCountry(ArrayList<Country> c) {
 	  ArrayList<BaseDocument> array=new ArrayList<>();
 	  for(int i=0 ;i<c.size();i++) {
@@ -74,6 +79,7 @@ public void addPerson(ArrayList<Person> p) {
 	  addDocuments("Country", array);
   }
   
+  
   public  void addEvent(ArrayList<Event> e) {
 	  ArrayList<BaseDocument> array=new ArrayList<>();
 	  for(int i=0 ;i<e.size();i++) {
@@ -90,6 +96,7 @@ public void addPerson(ArrayList<Person> p) {
 		  }
 	  addDocuments("Event", array);
   }
+  
   public  void addLocation(ArrayList<Location> l) {
 	  ArrayList<BaseDocument> array=new ArrayList<>();
 	  for(int i=0 ;i<l.size();i++) {
@@ -106,6 +113,8 @@ public void addPerson(ArrayList<Person> p) {
 		  }
 	  addDocuments("Location", array);
 	  }
+  
+  
   public void addOrganization(ArrayList<Organization> o) {
 	  ArrayList<BaseDocument> array=new ArrayList<>();
 	  for(int i=0 ;i<o.size();i++) {
@@ -123,6 +132,7 @@ public void addPerson(ArrayList<Person> p) {
 	  addDocuments("Organization", array);
 	  
   }
+  
   
   public  void addTime(ArrayList<Time> t) {
 	 ArrayList<BaseDocument> array=new ArrayList<>();
@@ -143,6 +153,7 @@ public void addPerson(ArrayList<Person> p) {
 	  addDocuments("Time",array);
 	  }
   
+  
   public  void addAggrement(ArrayList<Aggrement> t) {
 		 ArrayList<BaseDocument> array=new ArrayList<>();
 		  for(int i=0 ;i<t.size();i++) {
@@ -161,6 +172,9 @@ public void addPerson(ArrayList<Person> p) {
 		  
 		  addDocuments("Aggrement",array);
 		  }
+  
+  
+  
   public void addFact(ArrayList<Fact> f) {
 	  ArrayList<BaseDocument> array=new ArrayList<>();
 	  for(int i=0 ;i<f.size();i++) {
