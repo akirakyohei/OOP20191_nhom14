@@ -1,45 +1,61 @@
 package oop.generatedata;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import oop.beans.Time;
 
-public class GenerateTimes extends Generate {
+public class GenerateTimes implements IGenerate {
+	private ArrayList<String> nhanHienThis;
+	private ArrayList<String> dinhDanhs;
+	private ArrayList<String> moTas;
+	private ArrayList<String> links;
 
 	/**
-	 * sinh danh sach thuc the  Time
-	 * @param n :so luong thuc the sinh ra
+	 * lấy dữ liệu thuộc tính của đối tượng
+	 *
+	 */
+	@Override
+	public void readAtribute() {
+
+		nhanHienThis = Data.readData("data/Time_nhan.txt");
+		dinhDanhs = Data.readData("data/Time_dinhDanh.txt");
+		moTas = Data.readData("data/Time_moTa.txt");
+		links = Data.readData("data/Time_link.txt");
+
+	}
+
+	/**
+	 * sinh danh sach thuc the Time
+	 * 
+	 * @param start          : vị trí bắt đầu đánh định danh thực thể
+	 * @param n              :so luong thuc the sinh ra
+	 * @param fileWrite:file lưu trữ định danh đối tượng
 	 * @return ArrayList<Time>
 	 */
 	@Override
-	public ArrayList<Time> generate(int n) {
-ArrayList<Time> dsTime = new ArrayList<>();
-		
-		ArrayList<String> nhanHienthis = readData("data/Time_nhan.txt");
-		
-		ArrayList<String> dinhDanhs = readData("data/Time_dinhDanh.txt");
+	public ArrayList<Time> generate(int start, int n, File fileWrite) throws IOException {
+		ArrayList<Time> dsTime = new ArrayList<>();
 
-		
-		ArrayList<String> moTas = readData("data/Time_moTa.txt");
-
-		
-		ArrayList<String> links = readData("data/Time_link.txt");
-		
-		ArrayList<String> ngayTrichRuts = readData("data/NgayTrichRut.txt");
-
-	
-		
-		for(int i=0;i<n;i++) {
-			Time coun=new Time();
-			coun.setDinhDanh(randomData(dinhDanhs));
-			coun.setLink(randomData(links));
-			coun.setMoTa(randomData(moTas));
-			coun.setNgayTrichRut(randomData(ngayTrichRuts));
-			coun.setNhanHienThi(randomData(nhanHienthis));
+		// mở ghi file
+		FileWriter fw = new FileWriter(fileWrite, true);
+		// tạo đối tượng để lưu trữ
+		for (int i = start; i < n + start; i++) {
+			Time coun = new Time();
+			coun.setDinhDanh(Data.randomData(dinhDanhs) + "_" + i);
+			coun.setLink(Data.randomData(links));
+			coun.setMoTa(Data.randomData(moTas));
+			coun.setNhanHienThi(Data.randomData(nhanHienThis));
 			dsTime.add(coun);
+			// ghi dinhdanh vao file
+			fw.write(coun.getDinhDanh() + "\n");
 		}
-		return dsTime;
+		// đóng file
+		fw.close();
 
-		}
+		return dsTime;
+	}
 
 }

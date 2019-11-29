@@ -18,11 +18,9 @@ public class Organization extends Entity {
 	}
 
 	@Override
-	public String toString()
-	  {
-	    return 
-	      "Organization [dinhDanh=" + this.dinhDanh + ", nhan=" + this.nhanHienThi + ", moTa=" + this.moTa + ", link=" + this.link + ", truSo =" + this.truSo + "]";
-	  }
+	public String toString() {
+		return "Organization [dinhDanh=" + this.getDinhDanh() + ", nhan=" + this.getNhanHienThi() + ", moTa="
+				+ this.getMoTa() + ", link=" + this.getLink() + ", truSo =" + this.getTruSo() + "]";
+	}
 
-	
 }

@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
 
-public abstract class Generate {
+public class Data {
 	public static ArrayList<String> readData(String path) {
 		ArrayList<String> data = new ArrayList<>();
 		try {
@@ -27,12 +27,10 @@ public abstract class Generate {
 		return data;
 	}
 
-	 public String randomData(ArrayList<String> data) {
+	public static String randomData(ArrayList<String> data) {
 		Random ran = new Random();
 		int i = ran.nextInt(data.size());
 		return data.get(i);
 	}
-	 
-	public abstract  ArrayList<?>generate(int n);
-	
+
 }

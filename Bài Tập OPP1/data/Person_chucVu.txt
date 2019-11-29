@@ -1,11 +1,14 @@
-﻿Thủ tướng Việt Nam
+﻿Chủ tịch nước Việt Nam
+Thủ tướng Việt Nam
 Tổng thống Hoa Kỳ
 Giáo sư
 Hiệu trưởng trường đại học Bách Khoa Hà Nội
-Giảng viên môn OOP
+Phi công
 Nhà Vật Lí học
 Nhà Toán học
 Nhạc sĩ
+Ca sĩ
+Diễn viên điện ảnh
 Nhà thơ
 Thi hào
 Tiền đạo
@@ -13,8 +16,15 @@ Thủ môn
 Thủ tướng Anh
 Diễn viên hài
 Giám đốc
-CEO
+Chủ đầu tư
 Chủ tịch tập đoàn
 Lập trình viên
+Luật sư
+Nghệ sĩ nhân dân
+Thủ tướng
+Đại tướng
+Huấn luyện viên
+Bộ trưởng bộ giáo dục
 Hacker
-Project manager
+Streamer
+CEO

@@ -1,4 +1,4 @@
-﻿Việt Nam 
+﻿Việt Nam
 Lào
 Thái Lan
 Vương quốc Anh
@@ -9,7 +9,7 @@ Trung Quốc
 Hàn Quốc
 Nhật Bản
 Malaysia
-Myanmar
+Mianma
 Campuchia
 Tây Ban Nha
 Bồ Ðào Nha
@@ -18,3 +18,14 @@ Triều Tiên
 Singapore
 Nga
 Ai Cập
+Đông Timor
+Iran
+Togo
+Venezuela
+Thụy Sĩ
+Hà Lan
+Phần Lan
+Qatar
+Thổ Nhĩ Kì
+Ả rập
+
