@@ -57,9 +57,9 @@ for f in Fact
 filter f.fact =="tổ chức"
 return f
 //2 Lay cac su kien trich rut trong ngay 8/3/2019
-for e in Event 
-filter e.ngayTrichRut=="8/3/2019"
-return e.nhanHienThi
+for f in Fact  
+filter f.ngayTrichRut=="8/3/2019"
+return f.nhanHienThi
 
 //3 lay thong tin ve nhung nguoi quan li "Trung_nguyen_19
 for f in Fact

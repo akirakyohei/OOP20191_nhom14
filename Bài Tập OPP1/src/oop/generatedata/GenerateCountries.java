@@ -59,27 +59,4 @@ public class GenerateCountries implements IGenerate {
 
 	}
 
-	public static void main(String[] args) {
-		GenerateCountries count = new GenerateCountries();
-		File file = new File("data/key_country.txt");
-
-		try {
-			file.delete();
-			file.createNewFile();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try {
-			count.generate(0, 2000, file);
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-
-		ArrayList<String> arr = Data.readData("data/key_country.txt");
-		for (String s : arr) {
-			System.out.println(s);
-		}
-
-	}
 }

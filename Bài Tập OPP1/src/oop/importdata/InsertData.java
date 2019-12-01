@@ -116,7 +116,11 @@ public class InsertData {
 
 		dao.close();
 	}
-
+	/**
+	 *thực hiện sinh và đẩy  dữ liệu vào database 
+	 * @param soLuong
+	 * @throws IOException
+	 */
 	public void loadFact(String fact, ArrayList<String> objects, ArrayList<String> subjects,
 			ArrayList<String> ngayTrichRuts, int soLuong) {
 		int start = 0;
@@ -130,7 +134,11 @@ public class InsertData {
 			factKiket.clear();
 		}
 	}
-
+	/**
+	 *thực hiện sinh và đẩy  dữ liệu vào database 
+	 * @param soLuong
+	 * @throws IOException
+	 */
 	public void loadCountry(int soLuong) throws IOException {
 		gen = new GenerateCountries();
 		gen.readAtribute();
@@ -146,7 +154,11 @@ public class InsertData {
 			dsCountries.clear();
 		}
 	}
-
+	/**
+	 *thực hiện sinh và đẩy  dữ liệu vào database 
+	 * @param soLuong
+	 * @throws IOException
+	 */
 	public void loadEvent(int soLuong) throws IOException {
 		gen = new GenerateEvents();
 		gen.readAtribute();
@@ -162,7 +174,11 @@ public class InsertData {
 			dsEvents.clear();
 		}
 	}
-
+	/**
+	 *thực hiện sinh và đẩy  dữ liệu vào database 
+	 * @param soLuong
+	 * @throws IOException
+	 */
 	public void loadLocation(int soLuong) throws IOException {
 		gen = new GenerateLocations();
 		gen.readAtribute();
@@ -178,7 +194,11 @@ public class InsertData {
 			dsLocations.clear();
 		}
 	}
-
+	/**
+	 *thực hiện sinh và đẩy  dữ liệu vào database 
+	 * @param soLuong
+	 * @throws IOException
+	 */
 	public void loadOrganization(int soLuong) throws IOException {
 		gen = new GenerateOrganizations();
 		gen.readAtribute();
@@ -195,7 +215,11 @@ public class InsertData {
 		}
 
 	}
-
+/**
+ *thực hiện sinh và đẩy  dữ liệu vào database 
+ * @param soLuong
+ * @throws IOException
+ */
 	public void loadPerson(int soLuong) throws IOException {
 		gen = new GeneratePersons();
 		gen.readAtribute();
@@ -212,7 +236,11 @@ public class InsertData {
 		}
 
 	}
-
+	/**
+	 *thực hiện sinh và đẩy  dữ liệu vào database 
+	 * @param soLuong
+	 * @throws IOException
+	 */
 	public void loadTime(int soLuong) throws IOException {
 		gen = new GenerateTimes();
 		gen.readAtribute();
@@ -228,7 +256,11 @@ public class InsertData {
 			dsTimes.clear();
 		}
 	}
-
+	/**
+	 *thực hiện sinh và đẩy  dữ liệu vào database 
+	 * @param soLuong
+	 * @throws IOException
+	 */
 	public void loadAggrement(int soLuong) throws IOException {
 		gen = new GenerateAggrement();
 		gen.readAtribute();

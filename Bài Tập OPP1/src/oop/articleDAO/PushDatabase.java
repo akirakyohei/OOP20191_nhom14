@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.arangodb.ArangoDBException;
 import com.arangodb.entity.BaseDocument;
+import com.arangodb.model.DocumentCreateOptions;
 import com.arangodb.util.MapBuilder;
 
 import oop.beans.Aggrement;
@@ -22,7 +23,9 @@ public class PushDatabase {
 	public PushDatabase(String nameDatabase) {
 		collection = new CollectionDatabase(nameDatabase);
 	}
-
+/**
+ * đóng collection 
+ */
 	public void close() {
 		collection.close();
 	}
@@ -30,12 +33,15 @@ public class PushDatabase {
 	public void addDocuments(String nameCollection, ArrayList<BaseDocument> array) {
 		try {
 
-			collection.getCollection(nameCollection).insertDocuments(array);
+			collection.getCollection(nameCollection).insertDocuments(array,new DocumentCreateOptions().waitForSync(true));
 		} catch (ArangoDBException e) {
 			System.out.println("Failed to create document. " + e.getMessage());
 		}
 	}
-
+/**
+ * nhập các dữ liệu person vào database 
+ * @param p:mảng các phần tử person 
+ */
 	public void addPerson(ArrayList<Person> p) {
 		ArrayList<BaseDocument> array = new ArrayList<>();
 		for (int i = 0; i < p.size(); i++) {
@@ -54,7 +60,10 @@ public class PushDatabase {
 		}
 		addDocuments("Person", array);
 	}
-
+	/**
+	 * nhập các dữ liệu country vào database 
+	 * @param c:mảng các phần tử country  
+	 */
 	public void addCountry(ArrayList<Country> c) {
 		ArrayList<BaseDocument> array = new ArrayList<>();
 		for (int i = 0; i < c.size(); i++) {
@@ -72,7 +81,10 @@ public class PushDatabase {
 		}
 		addDocuments("Country", array);
 	}
-
+	/**
+	 * nhập các dữ liệu  event vào database 
+	 * @param e:mảng các phần tử event 
+	 */
 	public void addEvent(ArrayList<Event> e) {
 		ArrayList<BaseDocument> array = new ArrayList<>();
 		for (int i = 0; i < e.size(); i++) {
@@ -88,7 +100,10 @@ public class PushDatabase {
 		}
 		addDocuments("Event", array);
 	}
-
+	/**
+	 * nhập các dữ liệu location  vào database 
+	 * @param l:mảng các phần tử location  
+	 */
 	public void addLocation(ArrayList<Location> l) {
 		ArrayList<BaseDocument> array = new ArrayList<>();
 		for (int i = 0; i < l.size(); i++) {
@@ -105,7 +120,10 @@ public class PushDatabase {
 		}
 		addDocuments("Location", array);
 	}
-
+	/**
+	 * nhập các dữ liệu organization vào database 
+	 * @param o:mảng các phần tử organization 
+	 */
 	public void addOrganization(ArrayList<Organization> o) {
 		ArrayList<BaseDocument> array = new ArrayList<>();
 		for (int i = 0; i < o.size(); i++) {
@@ -121,9 +139,11 @@ public class PushDatabase {
 			array.add(doc);
 		}
 		addDocuments("Organization", array);
-
 	}
-
+	/**
+	 * nhập các dữ liệu time vào database 
+	 * @param p:mảng các phần tử time 
+	 */
 	public void addTime(ArrayList<Time> t) {
 		ArrayList<BaseDocument> array = new ArrayList<>();
 		for (int i = 0; i < t.size(); i++) {
@@ -136,16 +156,17 @@ public class PushDatabase {
 			map.put("link", ti.getLink());
 			doc.setProperties(map);
 			array.add(doc);
-			System.out.println(doc.toString());
 		}
-
 		addDocuments("Time", array);
 	}
-
-	public void addAggrement(ArrayList<Aggrement> t) {
+	/**
+	 * nhập các dữ liệu aggrement vào database 
+	 * @param a:mảng các phần tử aggrement  
+	 */
+	public void addAggrement(ArrayList<Aggrement> a) {
 		ArrayList<BaseDocument> array = new ArrayList<>();
-		for (int i = 0; i < t.size(); i++) {
-			Aggrement ti = t.get(i);
+		for (int i = 0; i < a.size(); i++) {
+			Aggrement ti = a.get(i);
 			BaseDocument doc = new BaseDocument();
 			doc.setKey(ti.getDinhDanh());
 			Map<String, Object> map = new MapBuilder().get();
@@ -154,12 +175,14 @@ public class PushDatabase {
 			map.put("link", ti.getLink());
 			doc.setProperties(map);
 			array.add(doc);
-			System.out.println(doc.toString());
 		}
 
 		addDocuments("Aggrement", array);
 	}
-
+	/**
+	 * nhập các dữ liệu fact vào database 
+	 * @param p:mảng các phần tử fact  
+	 */
 	public void addFact(ArrayList<Fact> f) {
 		ArrayList<BaseDocument> array = new ArrayList<>();
 		for (int i = 0; i < f.size(); i++) {

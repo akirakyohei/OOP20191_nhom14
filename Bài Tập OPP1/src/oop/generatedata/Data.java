@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Data {
+	/**
+	 * đọc dữ liệu trong file 
+	 * @param path đường dẫn dữ liệu 
+	 * @return mảng String 
+	 */
 	public static ArrayList<String> readData(String path) {
 		ArrayList<String> data = new ArrayList<>();
 		try {
@@ -26,7 +31,11 @@ public class Data {
 		}
 		return data;
 	}
-
+	/**
+	 * random ngẫu nhiên dữ liệu 
+	 * @param data mảng dữ liệu 
+	 * @return phần tử trong mảng 
+	 */
 	public static String randomData(ArrayList<String> data) {
 		Random ran = new Random();
 		int i = ran.nextInt(data.size());

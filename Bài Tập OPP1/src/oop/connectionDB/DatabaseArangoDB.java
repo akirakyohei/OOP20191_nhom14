@@ -8,8 +8,8 @@ import com.arangodb.Protocol;
 public class DatabaseArangoDB {
 	private ArangoDB driver;
 	private ArangoDatabase database;
-
 	public DatabaseArangoDB(String nameDatabase) {
+		//cấu hình kết nối database 
 		try {
 			this.driver = new ArangoDB.Builder().timeout(100).host("127.0.0.1", 8529).user("root").password("")
 					.useProtocol(Protocol.VST).build();
@@ -19,11 +19,17 @@ public class DatabaseArangoDB {
 		}
 
 	}
-
+	
+	/**
+	 * tạo kết nối với database 
+	 * 
+	 */
 	public ArangoDatabase getConnection() {
 		return this.database;
 	}
-
+/**
+ * đóng kết nối 
+ */
 	public void close() {
 		try {
 			driver.shutdown();

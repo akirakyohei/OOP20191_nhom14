@@ -10,7 +10,10 @@ import com.arangodb.model.AqlQueryOptions;
 import oop.connectionDB.DatabaseArangoDB;
 
 public class QueryDatabase {
-
+/**
+ * tạo mảng chứa các câu truy vấn 
+ * @return mảng string 
+ */
 	public ArrayList<String> addQuery() {
 		ArrayList<String> queries = new ArrayList<>();
 		// Cau truy van don gian
@@ -54,8 +57,8 @@ public class QueryDatabase {
 		// Cau truy van Thong ke
 		// 1 lay tat ca tin tuc lien quan den quan he to chuc
 		queries.add("	for f in Fact " + " filter f.fact ==\"tổ chức\"" + " return f");
-		// 2 Lay cac su kien trich rut trong ngay 8/3/2019
-		queries.add("for e in Event " + " filter e.ngayTrichRut==\"8/3/2019\"" + " return {ten: e.nhanHienThi}");
+		// 2 Lay cac quan he duoc trich rut trong ngay 8/3/2019
+		queries.add("for f in Fact " + " filter f.ngayTrichRut==\"8/3/2019\"" + " return f");
 
 		// 3 lay thong tin ve nhung nguoi quan li "Trung_nguyen_19
 		queries.add("for f in Fact" + " for p in Person"
@@ -97,33 +100,36 @@ public class QueryDatabase {
 				+ " filter f1.fact==\"diễn ra tại\" and f1.object== s.sukien" + " return f1.subject");
 		return queries;
 	}
-
+/**
+ * thực hiện truy vấn 
+ * @param queries:mảng các câu truy vấn 
+ * @param nameDatabase : tên database 
+ * @return mảng long thời gian thực hiện từng câu truy vấn 
+ */
 	public ArrayList<Long> testQueries(ArrayList<String> queries, String nameDatabase) {
 		// System.out.println(queries.size());
 		ArrayList<Long> arr = new ArrayList<>();
 		long start, end;
 		DatabaseArangoDB database = new DatabaseArangoDB(nameDatabase);
-
+		//thực hiện truy vấn đánh giá thời gian 
 		for (int i = 0; i < queries.size(); i++) {
 			ArangoCursor<BaseDocument> cursor = null;
 			start = System.currentTimeMillis();
 			try {
 				cursor = database.getConnection().query(queries.get(i), null, new AqlQueryOptions().cache(true),
 						BaseDocument.class);
-
 			} catch (ArangoDBException e) {
 				// TODO: handle exception
 			}
 			end = System.currentTimeMillis();
 			arr.add((end - start));
+			//in ra màn hình các câu đã truy vấn 
 			System.out.println("Cau thu" + (i + 1));
 			while (cursor.hasNext()) {
 				BaseDocument baseDocument = cursor.next();
 				System.out.println(baseDocument.toString());
 			}
-			// database.getConnection().clearQueryCache();
 		}
-
 		database.close();
 		return arr;
 	}

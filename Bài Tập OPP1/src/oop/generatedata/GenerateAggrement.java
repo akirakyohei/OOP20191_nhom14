@@ -36,7 +36,7 @@ public class GenerateAggrement implements IGenerate {
 			aggrement.setNhanHienThi(Data.randomData(nhanHienThis));
 			dsAggrement.add(aggrement);
 
-			// ghi dinhdanh vao file
+			// ghi dinh danh vao file
 			fw.write(aggrement.getDinhDanh() + "\n");
 		}
 
