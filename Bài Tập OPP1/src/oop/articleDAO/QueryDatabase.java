@@ -10,10 +10,11 @@ import com.arangodb.model.AqlQueryOptions;
 import oop.connectionDB.DatabaseArangoDB;
 
 public class QueryDatabase {
-/**
- * tạo mảng chứa các câu truy vấn 
- * @return mảng string 
- */
+	/**
+	 * tạo mảng chứa các câu truy vấn
+	 * 
+	 * @return mảng string
+	 */
 	public ArrayList<String> addQuery() {
 		ArrayList<String> queries = new ArrayList<>();
 		// Cau truy van don gian
@@ -100,18 +101,20 @@ public class QueryDatabase {
 				+ " filter f1.fact==\"diễn ra tại\" and f1.object== s.sukien" + " return f1.subject");
 		return queries;
 	}
-/**
- * thực hiện truy vấn 
- * @param queries:mảng các câu truy vấn 
- * @param nameDatabase : tên database 
- * @return mảng long thời gian thực hiện từng câu truy vấn 
- */
+
+	/**
+	 * thực hiện truy vấn
+	 * 
+	 * @param queries:mảng các câu truy vấn
+	 * @param nameDatabase : tên database
+	 * @return mảng long thời gian thực hiện từng câu truy vấn
+	 */
 	public ArrayList<Long> testQueries(ArrayList<String> queries, String nameDatabase) {
 		// System.out.println(queries.size());
 		ArrayList<Long> arr = new ArrayList<>();
 		long start, end;
 		DatabaseArangoDB database = new DatabaseArangoDB(nameDatabase);
-		//thực hiện truy vấn đánh giá thời gian 
+		// thực hiện truy vấn đánh giá thời gian
 		for (int i = 0; i < queries.size(); i++) {
 			ArangoCursor<BaseDocument> cursor = null;
 			start = System.currentTimeMillis();
@@ -123,7 +126,7 @@ public class QueryDatabase {
 			}
 			end = System.currentTimeMillis();
 			arr.add((end - start));
-			//in ra màn hình các câu đã truy vấn 
+			// in ra màn hình các câu đã truy vấn
 			System.out.println("Cau thu" + (i + 1));
 			while (cursor.hasNext()) {
 				BaseDocument baseDocument = cursor.next();

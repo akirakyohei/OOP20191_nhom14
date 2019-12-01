@@ -38,7 +38,7 @@ public class TestImportMain {
 		long start = System.currentTimeMillis();
 
 		try {
-			create.loadData(15000000,17000000);
+			create.loadData(15000000, 17000000);
 		} catch (IOException e) {
 			System.out.println("load fail " + e.getMessage());
 		}

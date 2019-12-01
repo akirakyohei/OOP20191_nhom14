@@ -116,8 +116,10 @@ public class InsertData {
 
 		dao.close();
 	}
+
 	/**
-	 *thực hiện sinh và đẩy  dữ liệu vào database 
+	 * thực hiện sinh và đẩy dữ liệu vào database
+	 * 
 	 * @param soLuong
 	 * @throws IOException
 	 */
@@ -134,8 +136,10 @@ public class InsertData {
 			factKiket.clear();
 		}
 	}
+
 	/**
-	 *thực hiện sinh và đẩy  dữ liệu vào database 
+	 * thực hiện sinh và đẩy dữ liệu vào database
+	 * 
 	 * @param soLuong
 	 * @throws IOException
 	 */
@@ -154,8 +158,10 @@ public class InsertData {
 			dsCountries.clear();
 		}
 	}
+
 	/**
-	 *thực hiện sinh và đẩy  dữ liệu vào database 
+	 * thực hiện sinh và đẩy dữ liệu vào database
+	 * 
 	 * @param soLuong
 	 * @throws IOException
 	 */
@@ -174,8 +180,10 @@ public class InsertData {
 			dsEvents.clear();
 		}
 	}
+
 	/**
-	 *thực hiện sinh và đẩy  dữ liệu vào database 
+	 * thực hiện sinh và đẩy dữ liệu vào database
+	 * 
 	 * @param soLuong
 	 * @throws IOException
 	 */
@@ -194,8 +202,10 @@ public class InsertData {
 			dsLocations.clear();
 		}
 	}
+
 	/**
-	 *thực hiện sinh và đẩy  dữ liệu vào database 
+	 * thực hiện sinh và đẩy dữ liệu vào database
+	 * 
 	 * @param soLuong
 	 * @throws IOException
 	 */
@@ -215,11 +225,13 @@ public class InsertData {
 		}
 
 	}
-/**
- *thực hiện sinh và đẩy  dữ liệu vào database 
- * @param soLuong
- * @throws IOException
- */
+
+	/**
+	 * thực hiện sinh và đẩy dữ liệu vào database
+	 * 
+	 * @param soLuong
+	 * @throws IOException
+	 */
 	public void loadPerson(int soLuong) throws IOException {
 		gen = new GeneratePersons();
 		gen.readAtribute();
@@ -236,8 +248,10 @@ public class InsertData {
 		}
 
 	}
+
 	/**
-	 *thực hiện sinh và đẩy  dữ liệu vào database 
+	 * thực hiện sinh và đẩy dữ liệu vào database
+	 * 
 	 * @param soLuong
 	 * @throws IOException
 	 */
@@ -256,8 +270,10 @@ public class InsertData {
 			dsTimes.clear();
 		}
 	}
+
 	/**
-	 *thực hiện sinh và đẩy  dữ liệu vào database 
+	 * thực hiện sinh và đẩy dữ liệu vào database
+	 * 
 	 * @param soLuong
 	 * @throws IOException
 	 */

@@ -12,11 +12,12 @@ public class CollectionDatabase {
 	public CollectionDatabase(String nameDatabase) {
 		database = new DatabaseArangoDB(nameDatabase);
 	}
-	
-/**
- * Tạo collection  
- * @param name:tên collection 
- */
+
+	/**
+	 * Tạo collection
+	 * 
+	 * @param name:tên collection
+	 */
 	public void createCollection(String name) {
 		try {
 			database.getConnection().createCollection(name);
@@ -24,11 +25,12 @@ public class CollectionDatabase {
 			System.out.println("create collection " + name + " " + e.getErrorMessage());
 		}
 	}
-	
-/**
- * Xoá collection 
- * @param name:tên collection 
- */
+
+	/**
+	 * Xoá collection
+	 * 
+	 * @param name:tên collection
+	 */
 	public void dropCollection(String name) {
 		try {
 			ArangoCollection col = database.getConnection().collection(name);
@@ -37,18 +39,21 @@ public class CollectionDatabase {
 			System.out.println("create collection " + name + " " + e.getErrorMessage());
 		}
 	}
-/**
- * Lấy Collection 
- * @param name:tên collection 
- * @return collection 
- */
+
+	/**
+	 * Lấy Collection
+	 * 
+	 * @param name:tên collection
+	 * @return collection
+	 */
 	public ArangoCollection getCollection(String name) {
 		ArangoCollection col = database.getConnection().collection(name);
 		return col;
 	}
-/**
- * đóng database 
- */
+
+	/**
+	 * đóng database
+	 */
 	public void close() {
 		database.close();
 	}
