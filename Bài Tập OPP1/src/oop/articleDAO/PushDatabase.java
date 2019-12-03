@@ -77,7 +77,6 @@ public class PushDatabase {
 			BaseDocument doc = new BaseDocument();
 			doc.setKey(co.getDinhDanh());
 			Map<String, Object> map = new MapBuilder().get();
-			map.put("dinhDanh", co.getDinhDanh());
 			map.put("moTa", co.getMoTa());
 			map.put("nhanHienThi", co.getNhanHienThi());
 			map.put("link", co.getLink());
@@ -121,7 +120,6 @@ public class PushDatabase {
 			BaseDocument doc = new BaseDocument();
 			doc.setKey(lo.getDinhDanh());
 			Map<String, Object> map = new MapBuilder().get();
-			map.put("dinhDanh", lo.getDinhDanh());
 			map.put("moTa", lo.getMoTa());
 			map.put("nhanHienThi", lo.getNhanHienThi());
 			map.put("link", lo.getLink());
